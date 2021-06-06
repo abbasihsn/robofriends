@@ -3,6 +3,7 @@ import CardList from '../components/cardList.js';
 import SearchBox from '../components/searchBox';
 import Scroll from '../components/scroll'
 import './app.css'
+import ErrorBoundaries from '../components/errorBoundaries.js';
 
 
 
@@ -43,7 +44,9 @@ class App extends React.Component{
                     <h1 className='tc f1'>Robo Friends</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
                     <Scroll>
-                        <CardList robots={filteredRobots}/>
+                        <ErrorBoundaries>
+                            <CardList robots={filteredRobots}/>
+                        </ErrorBoundaries>
                     </Scroll>
                 </div>
             );
